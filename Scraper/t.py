@@ -21,28 +21,36 @@ browser = webdriver.Chrome(options=op)
 browser.get('http://childcarefind.okdhs.org/childcarefind/')
 
 #print(dir(browser))
-
+""" Search by Tulsa
+"""
 elem = browser.find_element_by_css_selector('#ctl00_ContentPlaceHolder1_txtCityName') 
-#elem = browser.find_element_by_css_selector('#ctl00_ContentPlaceHolder1_txtZipCode')
 elem.send_keys('Tulsa' + Keys.RETURN)
-#sells = elem.find_elements_by_xpath("//table[@id='ct100_ContentPlaceHolder1_GridView1']//tbody/tr[2]/td[7]")
 #cells = elem.find_elements_by_xpath("//table[@id='ct100_ContentPlaceHolder1_GridView1']//tbody/tr[2]/td[7]")
-cells = browser.find_elements_by_css_selector("#ctl00_ContentPlaceHolder1_GridView1")
+"""Search by zip
+elem = browser.find_element_by_css_selector('#ctl00_ContentPlaceHolder1_txtZipCode')
+elem.send_keys('74115' + Keys.RETURN)
+#cells = browser.find_elements_by_css_selector("#ctl00_ContentPlaceHolder1_GridView1")
+"""
+cells = browser.find_elements_by_css_selector("#ctl00_ContentPlaceHolder1_GridView1 > tbody > tr > td:nth-child(7)")
 addresses = []
 
-[addresses.append(x.text) for x in cells]
+#print(cells)
+#print(dir(cells))
+#print(len(cells))
+[addresses.append(x.text) for x in cells if x != ' ']
 """
     If multuple pages, page next and add addresses, until no next page button found
 """
 while (1):
     try:
-        browser.find_element_by_xpath('/html/body/form/div[3]/div[7]/div[1]/table/tbody/tr[33]/td/table/tbody/tr/td[1]/a').click()
-        cells = browser.find_elements_by_css_selector("#ctl00_ContentPlaceHolder1_GridView1")
-        [addresses.append(x.text) for x in cells]
+        print('trying next')
+        browser.find_element_by_link_text('Next Page').click()
+        cells = browser.find_elements_by_css_selector("#ctl00_ContentPlaceHolder1_GridView1 > tbody > tr > td:nth-child(7)")
+        [addresses.append(x.text) for x in cells if x.text != ' ']
     except:
         break
 
-#print(addresses)
+print(addresses)
 
 """
 print(r.headers)
