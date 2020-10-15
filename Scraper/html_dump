@@ -1,0 +1,391 @@
+{'Server': 'Microsoft-IIS/7.5', 'X-AspNet-Version': '4.0.30319', 'refresh': '1200;URL=Default.aspx', 'X-Powered-By': 'ASP.NET', 'Date': 'Tue, 13 Oct 2020 16:59:34 GMT', 'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '25210'}
+----------------------
+4
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" /><title>
+	Oklahoma Department of Human Services - Oklahoma Child Care Locator
+</title><link href="css/OKDHSapps100percent.css" media="screen" rel="stylesheet" type="text/css" /><link href="css/OKDHSappsprint.css" media="print" rel="stylesheet" type="text/css" /><link href="css/ChildCareFind.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="~/css/ChildCareFind.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<form name="aspnetForm" method="post" action="./Default.aspx" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjA4NTI4MDMxN2QYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFhgFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDAFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDEFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDIFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDMFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDQFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDUFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDYFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDcFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDgFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDkFLmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsUHJvZ3JhbU9wZXJhdGVkJDkFKmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsQWdlQ2F0ZWdvcnkkMAUqY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRjYmxBZ2VDYXRlZ29yeSQxBSpjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJGNibEFnZUNhdGVnb3J5JDIFKmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsQWdlQ2F0ZWdvcnkkMwUqY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRjYmxBZ2VDYXRlZ29yeSQ0BSpjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJGNibEFnZUNhdGVnb3J5JDUFKmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsQWdlQ2F0ZWdvcnkkNgUqY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRjYmxBZ2VDYXRlZ29yeSQ2BS1jdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJGNibFRyYW5zcG9ydGF0aW9uJDAFLWN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JsVHJhbnNwb3J0YXRpb24kMQUtY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRjYmxUcmFuc3BvcnRhdGlvbiQyBS1jdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJGNibFRyYW5zcG9ydGF0aW9uJDIFJGN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY2JvU3Vic2lkeVdI673S5SyAYqmZ70koTMN1jP9l2q0uJhW0cE1CxZg1" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7F53F854" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+<div class="parent">
+<div class="okdhsheadingsection1all">
+<div class="okdhsheadingsection1left">
+<!--image is in style sheet -->
+<p class="okdhsheadingsection1a">
+<a href="#maincontent">Skip to main content </a>
+</p>
+<!-- will need to indicate the image location -->
+<a href="http://www.okdhs.org">
+<img src="./images/trans1x2px.gif" id="ctl00_Img2" alt="Oklahoma Department of Human Services" />
+</a>
+</div>
+<div class="okdhsheadingsection1right">
+&nbsp;
+<!--image is in style sheet -->
+</div>
+</div>
+<div class="okdhsheadingsection1p">
+<div class="okdhsheadingsection1pa">
+<!-- will need to indicate the image location -->
+<img src="./Images/OKDHS-Logo-100.png" alt="" />
+</div>
+<div class="okdhsheadingsection1pb">
+Oklahoma Department of Human Services<br />
+Sequoyah Memorial Office Building, 2400 N. Lincoln Blvd. • Oklahoma City, OK 73105<br />
+(405) 521-3646 • Fax (405) 521-6684 • Internet: www.okdhs.org
+</div>
+</div>
+<div id="ctl00_okdhsheadingwhitebar" class="okdhsheadingwhitebarfront">
+&nbsp;
+</div>
+<div class="okdhsheadingsection2">
+<div class="okdhsheadingsection2a">
+
+
+</div>
+
+</div>
+
+
+<div class="okdhsheadingsection3">
+<div class="okdhsbreadcrumb">
+<a class="okdhsbreadcrumb" href="http://www.okdhs.org/">DHS Home</a> > 
+	<a class="okdhsbreadcrumb"
+href="http://www.okdhs.org/services/Pages/default.aspx">Programs/Services</a> > 
+	<a class="okdhsbreadcrumb"
+href="http://www.okdhs.org/services/cc/Pages/ChildCareMain.aspx">Child Care</a> > <a class="okdhsbreadcrumb">
+Child Care Locator</a>
+</div>
+</div>
+
+<!-- the following is on the internet site, and can be included on apps if needed 
+					but does not need to be there unless you want it there should be discussed in your project meetngs -->
+
+<div class="okdhsheadingsection4">
+<!-- the following is on the internet site, and can be included on apps if needed 
+						but does not need to be there unless you want it there should be discussed in your project meetngs -->
+<div class="okdhsheadingsection4a">
+</div>
+<div class="okdhsheadingsection4b">
+<img src="./Images/phone.png" height="20px" alt="" />
+<a title="List of hotline phone numbers" href="http://www.okdhs.org/contactus">DHS
+Hotlines</a>
+</div>
+
+<div class="okdhsheadingsection4c">
+<div class="okdhsheadingsection4c1">
+<a href="https://twitter.com/#!/OKDHS">
+<img src="./Images/twitter.png" id="ctl00_Img5" alt="Visit DHS on Twitter" />
+</a>
+</div>
+<div class="okdhsheadingsection4c2">
+<a href="http://www.facebook.com/OklahomaDHS">
+<img src="./Images/fb.png" id="ctl00_Img6" alt="Visit DHS on Facebook" />
+</a>
+</div>
+<div class="okdhsheadingsection4c3">
+<a href="http://www.youtube.com/oklahomadhs ">
+<img src="./Images/youtube.png" id="ctl00_Img7" alt="Visit DHS on You Tube" />
+</a>
+</div>
+<div class="okdhsheadingsection4c4">
+<a href="https://public.govdelivery.com/accounts/OKDHS/subscriber/new">
+<img src="./Images/govdelv.png" id="ctl00_Img8" alt="Sign up for DHS Updates" />
+</a>
+</div>
+<div class="okdhsheadingsection4c5" style="font-size: x-small">
+<a href="https://public.govdelivery.com/accounts/OKDHS/subscriber/new">Sign up for
+<br />
+DHS Updates </a>
+</div>
+</div>
+</div>
+<a id="maincontent"></a>
+<div class="maincontentarea">
+
+
+
+    <h2>
+&nbsp;Oklahoma Child Care Locator</h2>
+<div class="banner">
+<b><a href="http://www.okdhs.org/services/cc/Pages/occsvideogallery.aspx">
+Watch the video</a> about choosing quality child care. For additional information
+on how to find and choose quality child care, call the Oklahoma Child Care Resource
+and Referral Association at 1-888-962-2772 or <a href="https://www.oklahomachildcare.org/">https://www.oklahomachildcare.org</a> </b>
+	<br />
+<b><a href="http://www.okdhs.org/OKDHS%20Publication%20Library/87-91.pdf">Selecting Quality Child Care - A Parent's Guide</a></b>
+</div>
+<div class="fullwidth">
+
+<div class="leftcol">
+
+
+<p class="bluetab tabtext">
+Facility Name
+<img class="bluetaper" src="images/tr14x15_1.gif" alt="Facility Name" />
+<br />
+<img class="bluetrim" src="Images/blueback.gif" alt="" />
+</p>
+<p class="smalltext" style="width: 360px">
+If you know the name of the facility you are looking for, enter it here.</p>
+<p class="mediumtext"> Facility Name
+<input name="ctl00$ContentPlaceHolder1$txtFacilityName" type="text" id="ctl00_ContentPlaceHolder1_txtFacilityName" title="Facility Name" />
+</p>
+<p class="bluetab tabtext">
+Facility Location
+<img class="bluetaper" src="images/tr14x15_1.gif" alt="Facility Location" />
+<br />
+<img class="bluetrim" src="Images/blueback.gif" alt="" />
+</p>
+<p class="smalltext" style="width: 360px">
+Multiple entries allowed to narrow choices, if desired. If no entries are made,
+all facilities will be shown.
+</p> 
+<p class="mediumtext"> County &nbsp;&nbsp;
+
+<select name="ctl00$ContentPlaceHolder1$ddlbCounty" id="ctl00_ContentPlaceHolder1_ddlbCounty" title="County">
+	<option selected="selected" value="">All Counties</option>
+	<option value="01">Adair-1</option>
+	<option value="02">Alfalfa-2</option>
+	<option value="03">Atoka-3</option>
+	<option value="04">Beaver-4</option>
+	<option value="05">Beckham-5</option>
+	<option value="06">Blaine-6</option>
+	<option value="07">Bryan-7</option>
+	<option value="08">Caddo-8</option>
+	<option value="09">Canadian-9</option>
+	<option value="10">Carter-10</option>
+	<option value="11">Cherokee-11</option>
+	<option value="12">Choctaw-12</option>
+	<option value="13">Cimarron-13</option>
+	<option value="14">Cleveland-14</option>
+	<option value="15">Coal-15</option>
+	<option value="16">Comanche-16</option>
+	<option value="17">Cotton-17</option>
+	<option value="18">Craig-18</option>
+	<option value="19">Creek-19</option>
+	<option value="20">Custer-20</option>
+	<option value="21">Delaware-21</option>
+	<option value="22">Dewey-22</option>
+	<option value="23">Ellis-23</option>
+	<option value="24">Garfield-24</option>
+	<option value="25">Garvin-25</option>
+	<option value="26">Grady-26</option>
+	<option value="27">Grant-27</option>
+	<option value="28">Greer-28</option>
+	<option value="29">Harmon-29</option>
+	<option value="30">Harper-30</option>
+	<option value="31">Haskell-31</option>
+	<option value="32">Hughes-32</option>
+	<option value="33">Jackson-33</option>
+	<option value="34">Jefferson-34</option>
+	<option value="35">Johnston-35</option>
+	<option value="36">Kay-36</option>
+	<option value="37">Kingfisher-37</option>
+	<option value="38">Kiowa-38</option>
+	<option value="39">Latimer-39</option>
+	<option value="40">LeFlore-40</option>
+	<option value="41">Lincoln-41</option>
+	<option value="42">Logan-42</option>
+	<option value="43">Love-43</option>
+	<option value="44">McClain-44</option>
+	<option value="45">McCurtain-45</option>
+	<option value="46">McIntosh-46</option>
+	<option value="47">Major-47</option>
+	<option value="48">Marshall-48</option>
+	<option value="49">Mayes-49</option>
+	<option value="50">Murray-50</option>
+	<option value="51">Muskogee-51</option>
+	<option value="52">Noble-52</option>
+	<option value="53">Nowata-53</option>
+	<option value="54">Okfuskee-54</option>
+	<option value="55">Oklahoma-55</option>
+	<option value="56">Okmulgee-56</option>
+	<option value="57">Osage-57</option>
+	<option value="58">Ottawa-58</option>
+	<option value="59">Pawnee-59</option>
+	<option value="60">Payne-60</option>
+	<option value="61">Pittsburg-61</option>
+	<option value="62">Pontotoc-62</option>
+	<option value="63">Pottawatomie-63</option>
+	<option value="64">Pushmataha-64</option>
+	<option value="65">Roger Mills-65</option>
+	<option value="66">Rogers-66</option>
+	<option value="67">Seminole-67</option>
+	<option value="68">Sequoyah-68</option>
+	<option value="69">Stephens-69</option>
+	<option value="70">Texas-70</option>
+	<option value="71">Tillman-71</option>
+	<option value="72">Tulsa-72</option>
+	<option value="73">Wagoner-73</option>
+	<option value="74">Washington-74</option>
+	<option value="75">Washita-75</option>
+	<option value="76">Woods-76</option>
+	<option value="77">Woodward-77</option>
+
+</select>
+
+</p>
+<p class="mediumtext"> City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input name="ctl00$ContentPlaceHolder1$txtCityName" type="text" id="ctl00_ContentPlaceHolder1_txtCityName" title="City" />
+</p>
+<p class="mediumtext"> Zip Code&nbsp;
+<input name="ctl00$ContentPlaceHolder1$txtZipCode" type="text" maxlength="5" id="ctl00_ContentPlaceHolder1_txtZipCode" title="Zip Code" />
+</p>
+<p class="bluetab tabtext">
+Program Operated
+<img class="bluetaper" src="images/tr14x15_1.gif" alt="Program Operated" />
+<br />
+<img class="bluetrim" src="Images/blueback.gif" alt="" />
+</p>
+<p class="smalltext" style="width: 360px">
+Select as many as needed.&nbsp; If no boxes are checked, all facilities will be
+shown.
+<span id="ctl00_ContentPlaceHolder1_cblProgramOperated" title="Program Operated" class="mediumtext" style="display:inline-block;"><font face="Verdana"><input id="ctl00_ContentPlaceHolder1_cblProgramOperated_0" type="checkbox" name="ctl00$ContentPlaceHolder1$cblProgramOperated$0" /><label for="ctl00_ContentPlaceHolder1_cblProgramOperated_0">Day Time</label><input id="ctl00_ContentPlaceHolder1_cblProgramOperated_1" type="checkbox" name="ctl00$ContentPlaceHolder1$cblProgramOperated$1" /><label for="ctl00_ContentPlaceHolder1_cblProgramOperated_1">Year Round</label><br /><input id="ctl00_ContentPlaceHolder1_cblProgramOperated_2" type="checkbox" name="ctl00$ContentPlaceHolder1$cblProgramOperated$2" /><label for="ctl00_ContentPlaceHolder1_cblProgramOperated_2">Evenings</label><input id="ctl00_ContentPlaceHolder1_cblProgramOperated_3" type="checkbox" name="ctl00$ContentPlaceHolder1$cblProgramOperated$3" /><label for="ctl00_ContentPlaceHolder1_cblProgramOperated_3">School Year Only</label><br /><input id="ctl00_ContentPlaceHolder1_cblProgramOperated_4" type="checkbox" name="ctl00$ContentPlaceHolder1$cblProgramOperated$4" /><label for="ctl00_ContentPlaceHolder1_cblProgramOperated_4">Overnight</label><input id="ctl00_ContentPlaceHolder1_cblProgramOperated_5" type="checkbox" name="ctl00$ContentPlaceHolder1$cblProgramOperated$5" /><label for="ctl00_ContentPlaceHolder1_cblProgramOperated_5">Summer Only</label><br /><input id="ctl00_ContentPlaceHolder1_cblProgramOperated_6" type="checkbox" name="ctl00$ContentPlaceHolder1$cblProgramOperated$6" /><label for="ctl00_ContentPlaceHolder1_cblProgramOperated_6">Weekend</label><input id="ctl00_ContentPlaceHolder1_cblProgramOperated_7" type="checkbox" name="ctl00$ContentPlaceHolder1$cblProgramOperated$7" /><label for="ctl00_ContentPlaceHolder1_cblProgramOperated_7">School Vacation Only</label><br /><input id="ctl00_ContentPlaceHolder1_cblProgramOperated_8" type="checkbox" name="ctl00$ContentPlaceHolder1$cblProgramOperated$8" /><label for="ctl00_ContentPlaceHolder1_cblProgramOperated_8">Drop In (hourly)</label><input id="ctl00_ContentPlaceHolder1_cblProgramOperated_9" type="checkbox" name="ctl00$ContentPlaceHolder1$cblProgramOperated$9" /><label for="ctl00_ContentPlaceHolder1_cblProgramOperated_9">Sick Care</label><br /></font></span>
+</p>
+<p class="bluetab tabtext">
+Star Level
+<img class="bluetaper" src="images/tr14x15_1.gif" alt="Star Level" />
+<br />
+<img class="bluetrim" src="Images/blueback.gif" alt="" />
+</p>
+<p class="smalltext" style="width: 360px">
+Select Star level from list. Default is all levels.</p>
+<p class="mediumtext">
+<select name="ctl00$ContentPlaceHolder1$ddlStarLevel" id="ctl00_ContentPlaceHolder1_ddlStarLevel" title="Star Level">
+	<option value="All">All Levels</option>
+	<option value="01">1 Star</option>
+	<option value="1+">1 Star Plus and above</option>
+	<option value="02">2 Star and above</option>
+	<option value="03">3 Star</option>
+
+</select>
+</p>
+<p class="mediumtext">
+<a href="javascript:history.back();">
+<img src="images/2arrow3.gif" width="31" height="31" alt="Return to the form for another search" /></a>
+<input type="button" value="Previous Page" onclick=" history.back() " />
+<a href="javascript:history.back(1)">Go to Previous Page</a>
+</p>
+</div>
+
+<div class="rightcol" style="border-style: none">
+
+<br />
+<p class="bluetab tabtext">
+Ages Accepted
+<img class="bluetaper" src="images/tr14x15_1.gif" alt="Ages Accepted" />
+<br />
+<img class="bluetrim" src="Images/blueback.gif" alt="" />
+</p>
+<span id="ctl00_ContentPlaceHolder1_cblAgeCategory" title="Ages Accepted" class="mediumtext" style="display:inline-block;"><input id="ctl00_ContentPlaceHolder1_cblAgeCategory_0" type="checkbox" name="ctl00$ContentPlaceHolder1$cblAgeCategory$0" /><label for="ctl00_ContentPlaceHolder1_cblAgeCategory_0">0-11 months</label><input id="ctl00_ContentPlaceHolder1_cblAgeCategory_1" type="checkbox" name="ctl00$ContentPlaceHolder1$cblAgeCategory$1" /><label for="ctl00_ContentPlaceHolder1_cblAgeCategory_1">12-23 months</label><input id="ctl00_ContentPlaceHolder1_cblAgeCategory_2" type="checkbox" name="ctl00$ContentPlaceHolder1$cblAgeCategory$2" /><label for="ctl00_ContentPlaceHolder1_cblAgeCategory_2">2 yr old</label><br /><input id="ctl00_ContentPlaceHolder1_cblAgeCategory_3" type="checkbox" name="ctl00$ContentPlaceHolder1$cblAgeCategory$3" /><label for="ctl00_ContentPlaceHolder1_cblAgeCategory_3">3 yr old</label><input id="ctl00_ContentPlaceHolder1_cblAgeCategory_4" type="checkbox" name="ctl00$ContentPlaceHolder1$cblAgeCategory$4" /><label for="ctl00_ContentPlaceHolder1_cblAgeCategory_4">4 yr old</label><input id="ctl00_ContentPlaceHolder1_cblAgeCategory_5" type="checkbox" name="ctl00$ContentPlaceHolder1$cblAgeCategory$5" /><label for="ctl00_ContentPlaceHolder1_cblAgeCategory_5">5 yr old</label><br /><input id="ctl00_ContentPlaceHolder1_cblAgeCategory_6" type="checkbox" name="ctl00$ContentPlaceHolder1$cblAgeCategory$6" /><label for="ctl00_ContentPlaceHolder1_cblAgeCategory_6">6+ yr old</label><br /></span>
+<p class="bluetab tabtext">
+Facility Type
+<img class="bluetaper" src="images/tr14x15_1.gif" alt="Facility Type" />
+<br />
+<img class="bluetrim" src="Images/blueback.gif" alt="" />
+</p>
+<span id="ctl00_ContentPlaceHolder1_rblFacilityType" title="Facility Type" class="mediumtext" style="display:inline-block;"><input id="ctl00_ContentPlaceHolder1_rblFacilityType_0" type="radio" name="ctl00$ContentPlaceHolder1$rblFacilityType" value="" checked="checked" /><label for="ctl00_ContentPlaceHolder1_rblFacilityType_0">All Centers and Homes</label><input id="ctl00_ContentPlaceHolder1_rblFacilityType_1" type="radio" name="ctl00$ContentPlaceHolder1$rblFacilityType" value="DC" /><label for="ctl00_ContentPlaceHolder1_rblFacilityType_1">Centers</label><input id="ctl00_ContentPlaceHolder1_rblFacilityType_2" type="radio" name="ctl00$ContentPlaceHolder1$rblFacilityType" value="DH" /><label for="ctl00_ContentPlaceHolder1_rblFacilityType_2">Homes</label></span>
+<p class="bluetab tabtext">
+Transportation
+<img class="bluetaper" src="images/tr14x15_1.gif" alt="Transportation" />
+<br />
+<img class="bluetrim" src="Images/blueback.gif" alt="" />
+</p>
+<p class="smalltext" style="width: 360px">
+If no box is checked, facilities will be shown without regard to Transportation
+services.
+<span id="ctl00_ContentPlaceHolder1_cblTransportation" title="Transportation" class="mediumtext" style="display:inline-block;"><input id="ctl00_ContentPlaceHolder1_cblTransportation_0" type="checkbox" name="ctl00$ContentPlaceHolder1$cblTransportation$0" /><label for="ctl00_ContentPlaceHolder1_cblTransportation_0">To/From Children's Schools</label><br /><input id="ctl00_ContentPlaceHolder1_cblTransportation_1" type="checkbox" name="ctl00$ContentPlaceHolder1$cblTransportation$1" /><label for="ctl00_ContentPlaceHolder1_cblTransportation_1">To/From Children's Homes</label><br /><input id="ctl00_ContentPlaceHolder1_cblTransportation_2" type="checkbox" name="ctl00$ContentPlaceHolder1$cblTransportation$2" /><label for="ctl00_ContentPlaceHolder1_cblTransportation_2">Field Trips</label></span>
+</p>
+<p class="bluetab tabtext">
+Accept Subsidy?
+<img class="bluetaper" src="images/tr14x15_1.gif" alt="Accept Subsidy" />
+<br />
+<img class="bluetrim" src="Images/blueback.gif" alt="" />
+</p>
+<p class="smalltext" style="width: 360px">
+If not checked, facilities with or without OKDHS subsidy contract will be shown.
+</p>
+<span class="mediumtext" title="Accept Subsidy"><input id="ctl00_ContentPlaceHolder1_cboSubsidy" type="checkbox" name="ctl00$ContentPlaceHolder1$cboSubsidy" /><label for="ctl00_ContentPlaceHolder1_cboSubsidy"> Only Show Facilities that accept subsidy payments? </label></span>
+<br />
+<span id="ctl00_ContentPlaceHolder1_Label5" class="mediumtext">  For information about assistance, contact Oklahoma Child Care <br /> Services</span>
+<br />
+<p class="mediumtext">
+<input type="submit" name="ctl00$ContentPlaceHolder1$btnSearch" value="Search for Child Care" id="ctl00_ContentPlaceHolder1_btnSearch" />
+&nbsp;&nbsp;&nbsp;
+<input type="submit" name="ctl00$ContentPlaceHolder1$btnReset" value="Clear" id="ctl00_ContentPlaceHolder1_btnReset" />
+</p>
+<p class="mediumtext">
+<span id="ctl00_ContentPlaceHolder1_lblMarkYourChoices">To locate a child care facility, mark your choices to narrow the search, then click the "Search for Child Care" button to get a list of facilities matching your criteria.</span>
+<span id="ctl00_ContentPlaceHolder1_lblStartOver"><font color="Black" size="3">  (Click "Clear" to clear all choices and start over.)</font></span>
+</p>
+</div>
+
+</div>
+
+<div class="fullwidth">
+<p class="mediumtext">
+<b>Description of Star Levels</b> - Child care programs at every star level vary
+widely in the services and quality of care they provide. Take time in evaluating
+your child care options. Contact <a href="http://www.okdhs.org/services/cc/Pages/AboutUs.aspx">Child Care Services</a> for a checklist and
+steps to finding child care.
+<br />
+<br />
+The case files of child care centers and family child care homes are open to the
+public. Appointments may be made to view these files in the county OKDHS Licensing
+Services office. A Child Care Licensing Specialist will be available to discuss
+the file with you and answer any questions you may have about the contents of a
+file. To locate the telephone number and address of the Child Care Licensing Specialist
+for your county, please use the <a href="http://www.okdhs.org/services/cc/Pages/Staff.aspx">
+Licensing information page.</a>  For more information about Child Care Licensing, review the <a href="http://www.okdhs.org/services/cc/pages/cclupdates.aspx">Child Care Locator Fact Sheet.</a>
+<br />
+<br />
+</p>
+<p class="center mediumtext">
+<a href="mailto:childcare.occs@okdhs.org?subject=Child Care Locator"><b>Contact
+us by e-mail - Oklahoma Child Care Services.</b></a>
+</p>
+</div>
+
+
+</div>
+<div class="push">
+</div>
+</div>
+<div class="okdhsfootertop">
+&nbsp;
+</div>
+<div class="okdhsfooterbody">
+<div class="okdhsfooter1">
+<!--below this footer navigation is an UL navigation that does not act nice in compatability mode but is nicer in code
+						if you prefer to use it you can remove the code below and uncomment the ul code... make sure to see the style sheet and made the necessary changes as noted there
+						for this section-->
+
+<a title="Review policies and statements including accessibility, disclaimers, linking, privacy and security"
+href="http://www.okdhs.org/notices/">Website Policies</a> | <a title="Can’t remember where you found a piece of information on OKDHS.org? Send your questions or comments about OKDHS.org to the Web Content Management staff"
+href="mailto: webcontent@okdhs.org">Feedback</a> | <a title="Learn how OKDHS complies with the Oklahoma Electronic and Information Technology Accessibility Act"
+href="http://www.okdhs.org/notices/pages/accessibility.aspx">Accessibility</a> | <a title="access reader downloads for documents like PDFs"
+href="http://www.okdhs.org/library/it/">Document Readers </a>
+
+</div>
+<div class="okdhsfooterscreenname">
+
+</div>
+<div class="okdhsfootermodifydate">
+Last Updated: 12/07/2017
+
+</div>
+</div>
+</form>
+</body>
+</html>
+
