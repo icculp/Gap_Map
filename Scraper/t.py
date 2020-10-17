@@ -1,45 +1,44 @@
 #!/usr/bin/env python3
 """
-    Test
+    Scraps DHS Daycare locator website. Prints and returns list of addresses
+    Site uses asp.net, and thus was difficult to scrape using requests/beautifulsoup or scrapy.
+    Successful using selenium webdriver
 """
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import requests
 
-'''
-chromedriver = '/usr/local/bin/chromedriver'
-options = webdriver.ChromeOptions()
-options.add_argument('headless') #open a headless browser 
-browser = webdriver.Chrome(executable_path=chromedriver, chrome_options=options)
-'''
-#s = requests.Session()
-#r = s.get('http://childcarefind.okdhs.org/childcarefind/ChildCareFacilities.aspx')
 op = webdriver.ChromeOptions()
 op.add_argument('headless')
 browser = webdriver.Chrome(options=op)
 browser.get('http://childcarefind.okdhs.org/childcarefind/')
 
-#print(dir(browser))
-""" Search by Tulsa
+""" Search by Tulsa city """
 """
 elem = browser.find_element_by_css_selector('#ctl00_ContentPlaceHolder1_txtCityName') 
 elem.send_keys('Tulsa' + Keys.RETURN)
-#cells = elem.find_elements_by_xpath("//table[@id='ct100_ContentPlaceHolder1_GridView1']//tbody/tr[2]/td[7]")
-"""Search by zip
+"""
+
+
+""" Search by zip code """
 elem = browser.find_element_by_css_selector('#ctl00_ContentPlaceHolder1_txtZipCode')
 elem.send_keys('74115' + Keys.RETURN)
-#cells = browser.find_elements_by_css_selector("#ctl00_ContentPlaceHolder1_GridView1")
-"""
-cells = browser.find_elements_by_css_selector("#ctl00_ContentPlaceHolder1_GridView1 > tbody > tr > td:nth-child(7)")
-addresses = []
 
-#print(cells)
-#print(dir(cells))
-#print(len(cells))
-[addresses.append(x.text) for x in cells if x != ' ']
+""" Select elements containing addresses """
+cells = browser.find_elements_by_css_selector("#ctl00_ContentPlaceHolder1_GridView1 > tbody > tr > td:nth-child(7)")
+
+
+""" Appends addresses to list and removes empty items """
+addresses = []
+[addresses.append(x.text) for x in cells if x.text != ' ']
+
+
 """
     If multuple pages, page next and add addresses, until no next page button found
+    Useful for searching by city or zip code with addresses more than 1 page
+
+    Works automatically whether one page or multiple page returned
 """
 while (1):
     try:
@@ -52,7 +51,28 @@ while (1):
 
 print(addresses)
 
-"""
+""" Old attempts and scrap code:
+
+#cells = browser.find_elements_by_css_selector("#ctl00_ContentPlaceHolder1_GridView1")
+#print(dir(browser))
+#cells = elem.find_elements_by_xpath("//table[@id='ct100_ContentPlaceHolder1_GridView1']//tbody/tr[2]/td[7]")
+
+
+
+''' 
+chromedriver = '/usr/local/bin/chromedriver'
+options = webdriver.ChromeOptions()
+options.add_argument('headless') #open a headless browser 
+browser = webdriver.Chrome(executable_path=chromedriver, chrome_options=options)
+'''
+#s = requests.Session()
+#r = s.get('http://childcarefind.okdhs.org/childcarefind/ChildCareFacilities.aspx')
+
+
+#print(cells)
+#print(dir(cells))
+#print(len(cells))
+--------
 print(r.headers)
 print(dir(r))
 print('----------------------')
