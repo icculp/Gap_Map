@@ -1,0 +1,66 @@
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+
+</script>
+  <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+<style>
+#map {
+  height: 500px;
+}
+</style> 
+
+
+<body>
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiaWNjdWxwIiwiYSI6ImNrZ2Ewc2x6eTAyanAydmw1NDgzMXR0NXYifQ.nqjI4BmU6QzI8ddfbsfozA';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-95.91362573669322, 36.1905273587632],
+zoom: 11
+});
+
+var line = {
+  "type": "Feature",
+  "properties": {},
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+[-95.91362573669322, 36.1905273587632], [-95.91574094990814, 36.19051743478286], [-95.91573645834632, 36.19060240504822], [-95.91573584456249, 36.19061403133931], [-95.91569200131806, 36.191438007734654], [-95.9146647295271, 36.191285549112266], [-95.91352697073239, 36.19128437731413], [-95.91352711718974, 36.19105338372745], [-95.91352731330566, 36.190603812485726], [-95.91352732104684, 36.19057537869021], [-95.91352732420926, 36.19056393558018], [-95.91352732542431, 36.190527821210125], [-95.9135425407527, 36.19052774915974], [-95.91362573669322, 36.1905273587632]
+    ]
+  }
+};
+ 
+var polygon = turf.buffer(line, 2000, {units: 'feet'});
+
+map.on('load', function() {
+  map.addLayer({
+    "id": "route",
+    "type": "line",
+    "source": {
+      "type": "geojson",
+      "data": line
+    }
+});
+  map.addLayer({
+    "id": "poly",
+    "type": "fill",
+    "source": {
+      "type": "geojson",
+      "data": polygon
+    },
+    "layout": {},
+    "paint": {
+      "fill-color": 'red',
+      "fill-opacity": 0.3
+    }
+  });
+
+
+});
+</script>
+</body>
