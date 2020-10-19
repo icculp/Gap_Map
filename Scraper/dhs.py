@@ -76,9 +76,23 @@ def geo_code_bulk(adr):
         adr[a] += ', Tulsa OK'
     r = requests.post('https://api.geocod.io/v1.6/geocode?api_key={}'.format(api_key), json=adr)
     print(dir(r))
-    print(r.text)
+    #    print(r.text)
+    j = r.json()
+    #print(dir(j))
+    #print(j)
+    #print(j['results'])
+    koor = []
+    for result in j['results']:
+        koor.append(result['response']['results'][0]['location'])
 
-    
+    list_daycares = []
+    for k in koor:
+        r = requests.get('https://koordinates.com/services/query/v1/vector.json?key=f770cdf041a3473bb5c486f1c2b60f46&layer=102094&x={}&y={}&max_results=3&radius=10000&geometry=true&with_field_names=true'.format(k['lng'], k['lat']))
+        j = r.json()
+        list_daycares.append(j['vectorQuery']['layers']['102094']['features'][0]['geometry']['coordinates'][0])
+    print(list_daycares)
+    return list_daycares
+
 
 if __name__ == '__main__':
     addresses = scrapeDHS(zip=74115)

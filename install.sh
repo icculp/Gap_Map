@@ -8,4 +8,5 @@ sudo apt-get install mysql-server -y
 pip3 install gunicorn
 pip3 install flask
 pip3 install mysqldb
+pip3 install sqlalchemy
 
