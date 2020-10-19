@@ -8,7 +8,18 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import requests
+import json
 
+
+test_list = []
+for i in range(10):
+    test_list.append(i)
+
+
+with open('test.json', 'w') as test:
+    json.dump(test_list, test)
+
+'''
 op = webdriver.ChromeOptions()
 op.add_argument('headless')
 browser = webdriver.Chrome(options=op)
@@ -58,12 +69,13 @@ print(addresses)
 #cells = elem.find_elements_by_xpath("//table[@id='ct100_ContentPlaceHolder1_GridView1']//tbody/tr[2]/td[7]")
 
 
-
-''' 
+'''
+'''
 chromedriver = '/usr/local/bin/chromedriver'
 options = webdriver.ChromeOptions()
 options.add_argument('headless') #open a headless browser 
 browser = webdriver.Chrome(executable_path=chromedriver, chrome_options=options)
+'''
 '''
 #s = requests.Session()
 #r = s.get('http://childcarefind.okdhs.org/childcarefind/ChildCareFacilities.aspx')
@@ -111,3 +123,4 @@ print(payload)
 #j = r.json()
 #print(j)
 """
+'''
