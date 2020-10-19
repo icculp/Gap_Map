@@ -5,10 +5,12 @@
     Successful using selenium webdriver
 """
 from bs4 import BeautifulSoup
+import csv
 import json
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import requests
+
 
 def scrapeDHS(zip='', city=''):
     """
@@ -65,38 +67,87 @@ def geo_code_bulk(adr):
         Sends object of addresses in POST and receives lengthy results in json
         Parses results and dumps relevant info to daycares.json
     """
-    api_key = 'c250c589bcb58f291a8b02892200f88f82898fa'
-    print(json.dumps(adr))
-    ''' Returned too much additional info
-    payload = {}
-    for a in range(len(adr)):
-        payload.update({a: {"street": adr[a], "city": "Tulsa", "State": "OK"}})
+    ''' adr is only scraped day care addresses. Parks and school csv downloaded via Koordinates
+        Need to open csv files, parse out addresses, and include them in bulk geocode request
+        Probably a better way to do it, but alas, mvp needs to be finished asap
     '''
+    schools_path = 'city-of-tulsa-oklahoma-schools.csv'
+    parks_path = 'city-of-tulsa-oklahoma-park-and-recreation-areas.csv'
+    with open(schools_path, 'r') as schools:
+        schools = csv.reader(schools, delimiter=',')
+        ''' addresses are 9th field (8th index)
+            skip first row, headers
+        ''' 
+        schools = list(schools)
+        for s in range(1, len(schools)):
+            adr.append(schools[s][8])
+
+    with open(parks_path, 'r') as parks:
+        parks = csv.reader(parks, delimiter=',')
+        parks = list(parks)
+        #print(parks)
+        for p in range(1, len(parks)):
+            ''' addresses 3rd field 2nd index '''
+            adr.append(parks[p][2])
+    #exit()
+    """
+        Geocod has free api limit of 2500 a day. Juggling keys...
+        ian.culp@csuglobal.edu = f6fd5581fa8785658f6851733614d53afaf587d
+        ian.culp@holbertonschool.com = c250c589bcb58f291a8b02892200f88f82898fa
+    """
+    api_key = 'f6fd5581fa8785658f6851733614d53afaf587d'
+    #print(json.dumps(adr))
+
+
+    ''' Append city/state to addresses for geocode request '''
     for a in range(len(adr)):
         adr[a] += ', Tulsa OK'
+
+    print(adr)
+    #exit()
+
+    ''' Bulk geocode - sending addresses, receiving point coordinates for each address (parsing required)
+    '''
+    print("\n\n\n---\nSending bulk request to convert address to point coordinates\n---\n")
     r = requests.post('https://api.geocod.io/v1.6/geocode?api_key={}'.format(api_key), json=adr)
-    print(dir(r))
+    #print(dir(r))
     #    print(r.text)
+    print(r.status_code)
     j = r.json()
     #print(dir(j))
     #print(j)
     #print(j['results'])
+
+    ''' Parse geocode response, append point coordinates to list '''
+    print("\nParsing geocode response\n")
     koor = []
     for result in j['results']:
         koor.append(result['response']['results'][0]['location'])
 
-    list_daycares = []
+    
+    ''' Query Koordinates api with point coordinates for each address to receive parcel dimension coordinates
+        Parse json results and append coordinate lists for each address onto parcel_coordinates master list
+    '''
+    print("Sending point coordinates to receive parcel dimension coordinates")
+    parcel_coordinates = []
     for k in koor:
         r = requests.get('https://koordinates.com/services/query/v1/vector.json?key=f770cdf041a3473bb5c486f1c2b60f46&layer=102094&x={}&y={}&max_results=3&radius=10000&geometry=true&with_field_names=true'.format(k['lng'], k['lat']))
+        print(r.status_code)
         j = r.json()
-        list_daycares.append(j['vectorQuery']['layers']['102094']['features'][0]['geometry']['coordinates'][0])
-    print(list_daycares)
-    return list_daycares
+        parcel_coordinates.append(j['vectorQuery']['layers']['102094']['features'][0]['geometry']['coordinates'][0])
+    print(parcel_coordinates)
+
+
+    ''' serialize parcel_coordinates to file '''
+    with open('parcel_coordinates', 'w') as pc:
+        json.dump(parcel_coordinates, pc)
+    return parcel_coordinates
+
 
 
 if __name__ == '__main__':
-    addresses = scrapeDHS(zip=74115)
-    print('Addresses: \n{}'.format(addresses))
+    addresses = scrapeDHS(city='Tulsa')
+    #print('Addresses: \n{}'.format(addresses))
     geo_code_bulk(addresses)
 
 
@@ -106,6 +157,11 @@ if __name__ == '__main__':
 #print(dir(browser))
 #cells = elem.find_elements_by_xpath("//table[@id='ct100_ContentPlaceHolder1_GridView1']//tbody/tr[2]/td[7]")
 
+    ''' Returned too much additional info asdf adfa
+    payload = {}
+    for a in range(len(adr)):
+        payload.update({a: {"street": adr[a], "city": "Tulsa", "State": "OK"}})
+    '''
 
 
 ''' 
