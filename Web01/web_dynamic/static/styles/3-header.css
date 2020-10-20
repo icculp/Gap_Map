@@ -24,3 +24,12 @@ header div#api_status {
 header div#api_status.available {
     background: #ff545f;
 }
+
+header h1 {
+    position: absolute;
+    text-align: center;
+#    top: 10%;
+#    bottom: 0;
+    right: 0;
+    left: 0;
+}

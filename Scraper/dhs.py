@@ -103,6 +103,10 @@ def geo_code_bulk(adr):
     for a in range(len(adr)):
         adr[a] += ', Tulsa OK'
 
+    with open('addresses.json', 'w') as adrs:
+        json.dump(adr, adrs)
+
+    """
     print(adr)
     #exit()
 
@@ -142,7 +146,7 @@ def geo_code_bulk(adr):
     with open('parcel_coordinates', 'w') as pc:
         json.dump(parcel_coordinates, pc)
     return parcel_coordinates
-
+    """
 
 
 if __name__ == '__main__':
