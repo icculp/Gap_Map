@@ -5,7 +5,7 @@ This is a map with 2000 foot buffers drawn around the property lines of Tulsa ci
 Serving Tulsa city gap map at:
 http://35.188.7.170:5000/gap_map
 
-JSON list of parcel dimension coordinates served at the following API:
+JSON array of parcel dimension coordinates served at the following API:
 http://35.188.7.170:5001/api/v1/parcel_dimensions
 
 Using Google cloud compute engine vm instance:
