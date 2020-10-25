@@ -21,7 +21,7 @@ Point coordinates sent to Koordinates parcel dimension layer API query, and parc
 
 Coordinates list served by API endpoint :5001/parcel_dimensions 
 
-Coordinates deserialized from API GET request in jQuery and used to create lines in mapbox, which Turf.js uses to create buffer polygons, which are then added as layers to the map.
+Coordinates deserialized from API GET request in jQuery and used to create lines along the dimensions of each parcel, which Turf.js uses to create buffer polygons, which are then merged via turf.union() to create a single layer to add to the map.
 
 
  
