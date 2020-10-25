@@ -6,7 +6,7 @@ Serving Tulsa city gap map at:
 http://35.188.7.170:5000/gap_map
 
 JSON array of parcel dimension coordinates served at the following API:
-http://35.188.7.170:5001/api/v1/parcel_dimensions
+http://35.188.7.170:5001/api/v1/parcel_coordinates
 
 Using Google cloud compute engine vm instance:
 35.188.7.170
