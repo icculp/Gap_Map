@@ -8,7 +8,7 @@ http://gapmap.godaddysites.com
 Serving Tulsa city gap map at:
 http://35.188.7.170:5000/gap_map
 
-shorturl.at/dquB5
+http://shorturl.at/dquB5
 
 JSON array of parcel dimension coordinates served at the following API:
 http://35.188.7.170:5001/api/v1/parcel_coordinates
