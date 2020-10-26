@@ -3,10 +3,11 @@
 This is a map with 2000 foot buffers drawn around the property lines of Tulsa city schools, parks, and daycares. This is to provide a resource to allow registrants to abide by offender registration residency restrictions.
 
 Landing page:
-gapmap.godaddysites.com
+http://gapmap.godaddysites.com
 
 Serving Tulsa city gap map at:
 http://35.188.7.170:5000/gap_map
+
 shorturl.at/dquB5
 
 JSON array of parcel dimension coordinates served at the following API:
