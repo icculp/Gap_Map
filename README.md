@@ -6,6 +6,7 @@ Landing page:
 http://gapmap.godaddysites.com
 
 Serving Tulsa city gap map at:
+
 http://35.188.7.170:5000/gap_map
 
 http://shorturl.at/dquB5
