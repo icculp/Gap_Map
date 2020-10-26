@@ -8,6 +8,9 @@ sudo apt-get install nodejs -y
 sudo apt-get install npm -y
 
 npm install -g browserify
+npm install turf-merge
+npm install @turf/turf
+npm install @turf/union
 
 pip3 install gunicorn
 pip3 install flask

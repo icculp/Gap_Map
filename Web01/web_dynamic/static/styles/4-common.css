@@ -11,8 +11,9 @@ body .container {
 }
 
 #map {
-  position: relative;
+  position: absolute;
   height: 500px;
   width: 88%;
-  margin: 6%;
+  left: 6%;
+  right: 6%;
 }
