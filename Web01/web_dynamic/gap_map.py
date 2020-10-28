@@ -8,6 +8,10 @@ app = Flask(__name__)
 import sys
 sys.path.append('/home/vagrant/Gap_Map/Addresses')
 from dhs import scrapeDHS, geo_code_bulk
+from flask_cors import CORS
+
+
+cors = CORS(app)
 
 @app.teardown_appcontext
 def close_db(error):
