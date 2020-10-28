@@ -12,8 +12,12 @@ body .container {
 
 #map {
   position: absolute;
-  height: 500px;
+  height: 475px;
   width: 88%;
   left: 6%;
   right: 6%;
+}
+
+.mapboxgl-ctrl {
+    #display: relative;
 }

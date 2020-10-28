@@ -1,7 +1,3 @@
-#!/usr/bin/node
-/*
-* Task 6
-*/
 const $ = window.$;
 const jQuery = window.jQuery;
 
@@ -37,15 +33,16 @@ $(document).ready(function () {
     })
   );
 
-  /* Adds zoom control feature - NOT WORKING, no zoom, only rotate/change direction... 
-  map.addControl(new mapboxgl.NavigationControl());*/
-
+  /* Adds zoom control feature - NOT WORKING, no zoom, only rotate/change direction... */
+  map.addControl(new mapboxgl.NavigationControl());
   /*L.map.control.zoom(position='topleft');*/
 
 
+  /* Adds scale bar */
+  map.addControl(new mapboxgl.ScaleControl({position: 'bottom-left', unit: 'imperial'}));
+
   /* Adds fullscreen feature */
   map.addControl(new mapboxgl.FullscreenControl());
-
   /* retrieves list of parcel dimension coordinates from our API */
   $.ajax({
     type: 'GET',
@@ -61,23 +58,38 @@ $(document).ready(function () {
   /* failing and breaking map -  need to troubleshoot */
   $.ajax({
     type: 'GET',
+    headers: {"Access-Control-Allow-origin:": "*"},
     url: tulsa_city_url,
     data: '',
     async: false,
-      success: function (da) {
-        tulsa_city_poly = JSON.parse(da)
+    success: function (da) {
+        tulsa_city_poly = da
       }
     });
-
+  /*$.ajax({
+    type: 'GET',
+    headers: {"Access-Control-Allow-origin:": "*"},
+    url: tulsa_city_url,
+    data: '',
+    beforeSend: function(request) {
+      request.withCredentials = false
+    },
+    async: false,
+    success: function (da) {
+        tulsa_city_poly = da
+      }
+    });*/
   
   alert("Still in development/testing, buffered addresses are incomplete and some might be inaccurate\nLoading may take some time as the layers are loaded. \nPlease be patient. You will be notified once loading is complete\n");
   
   alert("This is only intended as an aid - not a final authority.\n\nYOU MUST VERIFY ADDRESSES WITH TPD\n\nThis is only intended as an interactive tool to assist in the process\n");
   
-  var buffers = new Array();  
+  var buffers = new Array();
+  var parcels = new Array();
   var linee = new Array();
   var polygonn = new Array();
   var buffy;
+  var parcy;
   /* Loop through parcel dimensions, creating buffers through turf.js, and appending these geojson buffer objects to  */
   for (i = 0; i < lii.length; i++) {
   
@@ -93,8 +105,8 @@ $(document).ready(function () {
     }
   });
   
-  polygonn.push(turf.buffer(linee[i], 2000, {units: 'feet'}));
-  
+  polygonn.push(turf.buffer(linee[i], 2200, {units: 'feet'}));
+  parcels.push(turf.lineToPolygon(linee[i]));
   }; /* end first for loop */
   
   
@@ -181,6 +193,7 @@ $(document).ready(function () {
         console.log(buffers);
 
         /* merges polygon buffer shapes into one layer using turf.union. Uses cascading join */
+        parcy = turf.union(...parcels);
         buffy = turf.union(...buffers);
         console.log(buffy);
             /* buffers drawn */
@@ -199,8 +212,25 @@ $(document).ready(function () {
                 "fill-opacity": .3
               }
           });
+            
+          /* draw merged parcel outline */
+          map.addLayer({
+              "id": "parcel_outlines",
+              "type": "fill",
+              "source": {
+                "type": "geojson",
+                "data": parcy
+              },
+              "layout": {
+                "fill-sort-key": 0.9,
+              },
+              "paint": {
+                "fill-color": 'red',
+                "fill-opacity": .3
+              }
+          });
 
-          /* tulsa city boundary drawn */
+          /* tulsa city boundary drawn - NOT WORKING */
           /* not working currently, ajax get request is failing above */
             map.addLayer({
               "id": 'tulsa_city_boundary',
