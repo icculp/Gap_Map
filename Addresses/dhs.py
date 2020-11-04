@@ -96,7 +96,6 @@ def geo_code_bulk(adr):
         ian.culp@holbertonschool.com = c250c589bcb58f291a8b02892200f88f82898fa
     """
     api_key = 'f6fd5581fa8785658f6851733614d53afaf587d'
-    #print(json.dumps(adr))
 
 
     ''' Append city/state to addresses for geocode request '''
@@ -106,7 +105,7 @@ def geo_code_bulk(adr):
     with open('addresses.json', 'w') as adrs:
         json.dump(adr, adrs)
 
-    """
+    
     print(adr)
     #exit()
 
@@ -114,13 +113,8 @@ def geo_code_bulk(adr):
     '''
     print("\n\n\n---\nSending bulk request to convert address to point coordinates\n---\n")
     r = requests.post('https://api.geocod.io/v1.6/geocode?api_key={}'.format(api_key), json=adr)
-    #print(dir(r))
-    #    print(r.text)
     print(r.status_code)
     j = r.json()
-    #print(dir(j))
-    #print(j)
-    #print(j['results'])
 
     ''' Parse geocode response, append point coordinates to list '''
     print("\nParsing geocode response\n")
@@ -146,7 +140,7 @@ def geo_code_bulk(adr):
     with open('parcel_coordinates', 'w') as pc:
         json.dump(parcel_coordinates, pc)
     return parcel_coordinates
-    """
+    
 
 
 if __name__ == '__main__':
