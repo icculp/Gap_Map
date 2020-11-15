@@ -3,3 +3,5 @@ __pychache__/
 ~#
 ~.swp
 */__pycache__/
+*__pycache__*
+*.pyc
