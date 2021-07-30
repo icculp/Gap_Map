@@ -2,10 +2,17 @@
 
 This is a map with 2000 foot buffers drawn around the property lines of Tulsa city schools, parks, and daycares. This is to provide a resource to allow registrants to abide by offender registration residency restrictions.
 
+Map currently running at:
+
+http://35.188.7.170:5000/gap_map
+
+
 =======
 Author:
 
-https://www.linkedin.com/in/ian-c-2b8293128/
+Ian Culp
+
+https://www.linkedin.com/in/ianculp/
 
 Landing page:
 
@@ -13,13 +20,13 @@ http://gapmap.godaddysites.com
 
 
 =======
-After cloning the repo and installing the required packages, run the following from sepearate terminals or within a terminal multiplexer like screen or tmux. The map runs from port 5000 and the parcel coordinates api should run from port 5001, hence the need to set the env variable when starting the app.
+After cloning the repo and installing the required packages, run the following from sepearate terminals or within a terminal multiplexer like screen or tmux. The map runs from port 5000 and the parcel coordinates api should run from port 5001, hence the need to set the env variable when starting the app. Ran into an issue with newer version of turf.js. This was originally built in python3.5 and turn 5.1.6. 
+
+The run_script should start everything if you have the right dependencies installed.
 
 python3 -m web_dynamic.gap_map
 
 API_PORT=5001 python3 -m api.v1.app
-
-
 
 
 Serving Tulsa city gap map at:
