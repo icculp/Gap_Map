@@ -1,0 +1,8 @@
+vagrant@instance-2:~/Gap_Map$ python3
+Python 3.5.2 (default, Oct  7 2020, 17:19:02) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+
+turf should be 5.1.6
+
