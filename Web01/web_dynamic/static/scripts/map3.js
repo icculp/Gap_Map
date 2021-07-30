@@ -3,11 +3,17 @@ const jQuery = window.jQuery;
 
 const api_url = 'http://35.188.7.170:5001/api/v1/parcel_coordinates';
 const tulsa_city_url = 'http://polygons.openstreetmap.fr/get_geojson.py?id=184985&params=0';
-var coordinates_array;
+var lii;
 var tulsa_city_poly;
+
+/* retreives parcel dimensions via internal api
+   wrapping contents of add layer inside
+  request is asynchronous. Pain in the ass. Have to wait.
+ */
 
 
 $(document).ready(function () {
+
   mapboxgl.accessToken = 'pk.eyJ1IjoiaWNjdWxwIiwiYSI6ImNrZ2Ewc2x6eTAyanAydmw1NDgzMXR0NXYifQ.nqjI4BmU6QzI8ddfbsfozA';
   var map = new mapboxgl.Map({
   container: 'map',
@@ -16,8 +22,9 @@ $(document).ready(function () {
   zoom: 11,
   interactive: true,
   });
-  /*center: [-95.9928, 36.1540],
-  center: [-95.91362573669322, 36.1905273587632],*/
+  /*center: [-95.9928, 36.1540],*/
+  center: [-95.91362573669322, 36.1905273587632],
+
   /* Adds geocoder/search for address feature */
   map.addControl(
     new MapboxGeocoder({
@@ -25,10 +32,15 @@ $(document).ready(function () {
     mapboxgl: mapboxgl
     })
   );
-  /* Adds zoom control feature */
+
+  /* Adds zoom control feature - NOT WORKING, no zoom, only rotate/change direction... */
   map.addControl(new mapboxgl.NavigationControl());
+  /*L.map.control.zoom(position='topleft');*/
+
+
   /* Adds scale bar */
   map.addControl(new mapboxgl.ScaleControl({position: 'bottom-left', unit: 'imperial'}));
+
   /* Adds fullscreen feature */
   map.addControl(new mapboxgl.FullscreenControl());
   /* retrieves list of parcel dimension coordinates from our API */
@@ -38,125 +50,22 @@ $(document).ready(function () {
     data: '',
     async: false,
     success: function (data) {
-      coordinates_array = data
+      lii = data
     }
   });
-  alert("Still in development/testing, buffered addresses are incomplete and some might be inaccurate\nLoading may take some time as the layers are loaded. \nPlease be patient. You will be notified once loading is complete\n");
-  alert("This is only intended as an aid - not a final authority.\n\nYOU MUST VERIFY ADDRESSES WITH TPD\n\nThis is only intended as an interactive tool to assist in the process\n");
-  var parcels = new Array();
-  var lines = new Array();
-  var buffers = new Array();
-  var buffy;
-  var parcy;
-  /* Loop through parcel dimensions, creating buffers through turf.js, and appending these geojson buffer objects to  */
-  for (i = 0; i < coordinates_array.length; i++) {
-   /**console.log(i);
-   console.log(coordinates_array[i]); */
-  console.log(i);
-   lines.push({
-     "type": "Feature",
-     "properties": {},
-     "geometry": {
-       "type": "LineString",
-       "coordinates": coordinates_array[i]
-     }
-   });
-   buffers.push(turf.buffer(lines[i], 2300, {units: 'feet'}));
-   parcels.push(turf.lineToPolygon(lines[i]));
-   console.log(parcels);
-    console.log("HEREEEEEEEEEEEEEEEEEE");
-  }; /* end first for loop */
-  map.on('load', function() {
-    let route = "route";
-    let poly = "poly";
-        /* merges parcels and buffer polygon shapes into one layer each using turf.union. Uses cascading join */
-        console.log("parcels length:");
-        console.log(parcels.length);
-        console.log(...parcels);
-        //parcy = turf.union(...parcels);
-        //buffers = turf.featureCollection(buffers);
-        buffy = turf.union(...buffers);
-        /**buffy = turf.union.apply(this, ...buffers);*/
-        console.log(buffy);
-        console.log(buffy.length);
-            /* draw buffers */
-            map.addLayer({
-              "id": poly,
-              "type": "fill",
-              "source": {
-                "type": "geojson",
-                "data": buffy
-              },
-              "layout": {
-                "fill-sort-key": 0.9,
-              },
-              "paint": {
-                "fill-color": 'red',
-                "fill-opacity": .3
-              }
-          });
-          /* draw merged parcel outline */
-          console.log("parcy");
-          console.log(parcy);
-          /**map.addLayer({
-              "id": "parcel_outlines",
-              "type": "fill",
-              "source": {
-                "type": "geojson",
-                "data": parcy
-              },
-              "layout": {
-                "fill-sort-key": 0.9,
-              },
-              "paint": {
-                "fill-color": 'red',
-                "fill-opacity": .3
-              }
-          });*/
-        alert('Loading complete');
-     
-  });/** end map.on('load')*/
-       /** }*/
-   /** };*/
-});
 
   /* retrieves geojson coordinates of Tulsa City boundary */
   /* failing and breaking map -  need to troubleshoot */
-  /*$.ajax({
+  $.ajax({
     type: 'GET',
     headers: {"Access-Control-Allow-origin:": "*"},
     url: tulsa_city_url,
     data: '',
     async: false,
-    success: function (data2) {
-        tulsa_city_poly = data2
+    success: function (da) {
+        tulsa_city_poly = da
       }
-    });*/
-    /**for (j = 0; j < coordinates_array.length; j++) {
-      route = "route" + j.toString();
-      poly = "poly" + j.toString();
-      if (j == coordinates_array.length - 1) {
-        /*buffers = turf.featureCollection(buffers);*/
-        /**console.log(buffers);*/
-
-          /* tulsa city boundary drawn - NOT WORKING */
-          /* not working currently, ajax get request is failing above */
-           /* map.addLayer({
-              "id": 'tulsa_city_boundary',
-              "type": "fill",
-              "source": {
-                "type": "geojson",
-                "data": tulsa_city_poly
-              },
-              "layout": {
-                "fill-sort-key": 0.9,
-              },
-              "paint": {
-                "fill-color": 'orange',
-                "fill-opacity": .1
-              }
-          });*/
-
+    });
   /*$.ajax({
     type: 'GET',
     headers: {"Access-Control-Allow-origin:": "*"},
@@ -170,6 +79,45 @@ $(document).ready(function () {
         tulsa_city_poly = da
       }
     });*/
+  
+  alert("Still in development/testing, buffered addresses are incomplete and some might be inaccurate\nLoading may take some time as the layers are loaded. \nPlease be patient. You will be notified once loading is complete\n");
+  
+  alert("This is only intended as an aid - not a final authority.\n\nYOU MUST VERIFY ADDRESSES WITH TPD\n\nThis is only intended as an interactive tool to assist in the process\n");
+  
+  var buffers = new Array();
+  var parcels = new Array();
+  var linee = new Array();
+  var polygonn = new Array();
+  var buffy;
+  var parcy;
+  /* Loop through parcel dimensions, creating buffers through turf.js, and appending these geojson buffer objects to  */
+  for (i = 0; i < lii.length; i++) {
+  
+  console.log(i);
+  console.log(lii[i]); 
+  
+  linee.push({
+    "type": "Feature",
+    "properties": {},
+    "geometry": {
+      "type": "LineString",
+      "coordinates": lii[i]
+    }
+  });
+  
+  polygonn.push(turf.buffer(linee[i], 2200, {units: 'feet'}));
+  parcels.push(turf.lineToPolygon(linee[i]));
+  }; /* end first for loop */
+  
+  
+  map.on('load', function() {
+    let route = "route";
+    let poly = "poly";
+    let testy = {}; 
+ 
+    for (j = 0; j < lii.length; j++) {
+      route = "route" + j.toString();
+      poly = "poly" + j.toString();
       /*p.addLayer({
           "id": route,
           "type": "line",
@@ -192,15 +140,11 @@ $(document).ready(function () {
 
 /*
 { "type": "Feature", 
-
     "properties": {}, 
-
     "geometry": { "type": "MultiPolygon",
                   "coordinates": [ [ -10677052.432794284075499, 4326259.821823123842478 ], [ -10677287.897840723395348, 4326258.452980730682611 ], [ -10677482.064381778240204, 4326289.013219564221799 ], [ -10677656.412868939340115, 4326379.772124843671918 ], [ -10677792.817201314494014, 4326521.293967584148049 ], [ -10677877.096133448183537, 4326698.865461527369916 ], [ -10677900.487625293433666, 4326894.025426613166928 ], [ -10677899.988335033878684, 4326905.728991044685245 ], [ -10677899.920716581866145, 4326907.316026756539941 ], [ -10677895.031371830031276, 4327021.174103274010122 ], [ -10677850.999961718916893, 4327223.884723415598273 ], [ -10677741.544246198609471, 4327400.094277453608811 ], [ -10677579.338511565700173, 4327529.398802691139281 ], [ -10677383.165165942162275, 4327596.825644982978702 ], [ -10677175.739854050800204, 4327594.567198310047388 ], [ -10677115.666842862963676, 4327583.520157952792943 ], [ -10677044.20462778583169, 4327583.428961371071637 ], [ -10676855.954702518880367, 4327553.381548386067152 ], [ -10676686.190284479409456, 4327466.658288774080575 ], [ -10676551.513060169294477, 4327331.740066722035408 ], [ -10676465.093451766297221, 4327161.820872181095183 ], [ -10676435.382648648694158, 4326973.517527632415295 ], [ -10676435.398927306756377, 4326941.704414705745876 ], [ -10676435.420717734843493, 4326879.810439417138696 ], [ -10676435.422058012336493, 4326869.396847310476005 ], [ -10676465.056672694161534, 4326681.719299921765924 ], [ -10676551.033286668360233, 4326512.281718403100967 ], [ -10676684.999514622613788, 4326377.544485431164503 ], [ -10676853.940915733575821, 4326290.596942788921297 ], [ -10677041.445309853181243, 4326259.88579876627773 ], [ -10677043.139072462916374, 4326259.875860678963363 ], [ -10677052.432794284075499, 4326259.821823123842478 ] ]  } 
-
     };*/
     /*alert(testy);
-
        map.addLayer({
           "id": "cantbenamedthis191919191",
           "type": "fill",
@@ -216,8 +160,6 @@ $(document).ready(function () {
             "fill-opacity": .3
           }
       });
-
-
       alert(polygonn[0]);*/
         /*p.addLayer({
           "id": poly,
@@ -234,3 +176,75 @@ $(document).ready(function () {
             "fill-opacity": .1
           }
       });*/
+      buffers.push(polygonn[j]);
+
+
+      if (j == lii.length - 1) {
+        console.log("JJJJJJJJ");
+        console.log(j);
+        console.log(buffers);
+        /*buffers = turf.featureCollection(buffers);*/
+        console.log(buffers);
+
+        /* merges polygon buffer shapes into one layer using turf.union. Uses cascading join */
+        parcy = turf.union(...parcels);
+        buffy = turf.union(...buffers);
+        console.log(buffy);
+            /* buffers drawn */
+            map.addLayer({
+              "id": poly,
+              "type": "fill",
+              "source": {
+                "type": "geojson",
+                "data": buffy
+              },
+              "layout": {
+                "fill-sort-key": 0.9,
+              },
+              "paint": {
+                "fill-color": 'red',
+                "fill-opacity": .3
+              }
+          });
+            
+          /* draw merged parcel outline */
+          map.addLayer({
+              "id": "parcel_outlines",
+              "type": "fill",
+              "source": {
+                "type": "geojson",
+                "data": parcy
+              },
+              "layout": {
+                "fill-sort-key": 0.9,
+              },
+              "paint": {
+                "fill-color": 'red',
+                "fill-opacity": .3
+              }
+          });
+
+          /* tulsa city boundary drawn - NOT WORKING */
+          /* not working currently, ajax get request is failing above */
+            map.addLayer({
+              "id": 'tulsa_city_boundary',
+              "type": "fill",
+              "source": {
+                "type": "geojson",
+                "data": tulsa_city_poly
+              },
+              "layout": {
+                "fill-sort-key": 0.9,
+              },
+              "paint": {
+                "fill-color": 'orange',
+                "fill-opacity": .1
+              }
+          });
+
+
+        alert('Loading complete');
+        }
+    };
+  });
+});
