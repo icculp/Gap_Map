@@ -1,7 +1,7 @@
 const $ = window.$;
 const jQuery = window.jQuery;
 
-const api_url = 'http://35.188.7.170:5001/api/v1/parcel_coordinates';
+const api_url = 'http://34.72.128.8:5001/api/v1/parcel_coordinates';
 const tulsa_city_url = 'http://polygons.openstreetmap.fr/get_geojson.py?id=184985&params=0';
 var coordinates_array;
 var tulsa_city_poly;
