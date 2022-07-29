@@ -22,7 +22,7 @@ jsonpointer==1.9
 jsonschema==3.2.0
 language-selector==0.1
 MarkupSafe==1.1.1
-mistune==0.8.4
+mistune==2.0.3
 oauthlib==1.0.3
 prettytable==0.7.2
 pyasn1==0.1.9
